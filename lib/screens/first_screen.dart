@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cir2w16/screens/login.dart';
 
 import 'contact.dart';
 import 'home.dart';
 import 'profile.dart';
 
-class FirstScreen extends StatelessWidget {
+class FirstScreen extends StatefulWidget {
   static String id = '/first';
   const FirstScreen({Key? key}) : super(key: key);
 
+  @override
+  State<FirstScreen> createState() => _FirstScreenState();
+}
+
+class _FirstScreenState extends State<FirstScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,8 +22,88 @@ class FirstScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.indigo,
       ),
-      body: const Center(
-        child: Text("First Screen"),
+      body: Center(
+        child: GridView.count(
+          crossAxisCount: 2,
+          children: [
+            Card(
+              margin: EdgeInsets.all(12),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HomeScreen()),
+                  );
+                },
+                splashColor: Colors.blue,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.home, size: 50, color: Colors.blueAccent),
+                    Text("Home", style: TextStyle(fontSize: 17))
+                  ],
+                ),
+              ),
+            ),
+            Card(
+              margin: EdgeInsets.all(12),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ContactScreen()),
+                  );
+                },
+                splashColor: Colors.blue,
+                child: Column(
+                   mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.android, size: 50, color: Colors.blueAccent),
+                    Text("Contact", style: TextStyle(fontSize: 17))
+                  ],
+                ),
+              ),
+            ),
+            Card(
+              margin: EdgeInsets.all(12),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ProfileScreen()),
+                  );
+                },
+                splashColor: Colors.blue,
+                child: Column(
+                   mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.new_releases, size: 50, color: Colors.blueAccent),
+                    Text("Profile", style: TextStyle(fontSize: 17))
+                  ],
+                ),
+              ),
+            ),
+            Card(
+              margin: EdgeInsets.all(12),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()),
+                  );
+                },
+                splashColor: Colors.blue,
+                child: Column(
+                   mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.military_tech, size: 50, color: Colors.blueAccent),
+                    Text("Login", style: TextStyle(fontSize: 17))
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
       drawer: Drawer(
         child: ListView(

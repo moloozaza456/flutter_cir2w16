@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cir2w16/screens/splash_screnn.dart';
 
 import 'screens/contact.dart';
 import 'screens/first_screen.dart';
@@ -20,9 +21,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       //home: HomeScreen()
-      initialRoute: '/',
+      initialRoute: '/splash',
       routes: {
         '/': (context) => const HomeScreen(),
+        '/splash': (context) => const SplashScreen(),
         FirstScreen.id: (context) => const FirstScreen(),
         ContactScreen.id: (context) => const ContactScreen(),
         ProfileScreen.id: (context) => const ProfileScreen(),
